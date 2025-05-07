@@ -14,8 +14,8 @@ const auth = new google.auth.GoogleAuth({
   scopes: ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
 });
 
-const TEMPLATE_SPREADSHEET_ID = '1fRoDmMx8ZZzIyIvy3Ee72zmMnHMS8LRFi9zPODV4ej8'; // Replace with your template's sheet ID
-const DESTINATION_FOLDER_ID = 'YOUR_GOOGLE_DRIVE_FOLDER_ID'; // Optional
+const TEMPLATE_SPREADSHEET_ID = '1fRoDmMx8ZZzIyIvy3Ee72zmMnHMS8LRFi9zPODV4ej8';
+const DESTINATION_FOLDER_ID = null;
 
 app.post('/generate', async (req, res) => {
   try {
@@ -25,7 +25,7 @@ app.post('/generate', async (req, res) => {
 
     // Copy the template
     const copy = await drive.files.copy({
-      fileId: 1fRoDmMx8ZZzIyIvy3Ee72zmMnHMS8LRFi9zPODV4ej8,
+      fileId: TEMPLATE_SPREADSHEET_ID,
       requestBody: {
         name: `EDI Plan - ${req.body.customerName}`,
         parents: DESTINATION_FOLDER_ID ? [DESTINATION_FOLDER_ID] : undefined
@@ -34,14 +34,42 @@ app.post('/generate', async (req, res) => {
 
     const newSheetId = copy.data.id;
 
-    // You can now fill in metadata or phases
-    // Example: write customer name
+    // Write general project metadata
+    await sheets.spreadsheets.values.batchUpdate({
+      spreadsheetId: newSheetId,
+      requestBody: {
+        valueInputOption: 'USER_ENTERED',
+        data: [
+          { range: 'Sheet1!C3', values: [[req.body.projectTitle]] },
+          { range: 'Sheet1!C4', values: [[req.body.customerName]] },
+          { range: 'Sheet1!C5', values: [[req.body.contactEmail]] },
+          { range: 'Sheet1!C6', values: [[req.body.ticketNumber]] },
+          { range: 'Sheet1!C7', values: [[req.body.channel]] },
+          { range: 'Sheet1!C8', values: [[req.body.startDate]] },
+          { range: 'Sheet1!C9', values: [[req.body.goLiveDate]] },
+          { range: 'Sheet1!C10', values: [[req.body.ediDocs]] }
+        ]
+      }
+    });
+
+    // Write all 7 phase details
+    const phaseData = [];
+    for (let i = 1; i <= 7; i++) {
+      phaseData.push([
+        req.body[`phase_start_${i}`],
+        req.body[`phase_end_${i}`],
+        req.body[`phase_owner_${i}`],
+        req.body[`phase_status_${i}`],
+        req.body[`phase_comment_${i}`]
+      ]);
+    }
+
     await sheets.spreadsheets.values.update({
       spreadsheetId: newSheetId,
-      range: 'Sheet1!C3', // adjust based on your template
+      range: 'Sheet1!C13:G19', // Adjust this to where your phase table begins
       valueInputOption: 'USER_ENTERED',
       requestBody: {
-        values: [[req.body.customerName]]
+        values: phaseData
       }
     });
 
@@ -54,4 +82,4 @@ app.post('/generate', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
+app.listen(PORT, () => console.log(`✅ Backend running on port ${PORT}`));
