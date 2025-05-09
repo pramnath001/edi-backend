@@ -37,8 +37,6 @@ app.post('/generate', async (req, res) => {
 		// Share the new sheet with 3 users as Editors
 		const shareWith = [
 		  'pramnath.adibagavane@nmb-minebea.com',
-		  'bsd_edisupport@nmb-minebea.com',
-		  'genevieve.llaban@nmb-minebea.com'
 		];
 
 		for (const email of shareWith) {
