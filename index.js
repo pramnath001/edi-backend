@@ -32,7 +32,25 @@ app.post('/generate', async (req, res) => {
       }
     });
 
-    const newSheetId = copy.data.id;
+		const newSheetId = copy.data.id;
+
+		// Share the new sheet with 3 users as Editors
+		const shareWith = [
+		  'pramnath.adibagavane@nmb-minebea.com',
+		  'bsd_edisupport@nmb-minebea.com',
+		  'genevieve.llaban@nmb-minebea.com'
+		];
+
+		for (const email of shareWith) {
+		  await drive.permissions.create({
+			fileId: newSheetId,
+			requestBody: {
+			  type: 'user',
+			  role: 'writer', // 'writer' = Editor access
+			  emailAddress: email
+			}
+		  });
+		}
 
     // Write general project metadata
     await sheets.spreadsheets.values.batchUpdate({
