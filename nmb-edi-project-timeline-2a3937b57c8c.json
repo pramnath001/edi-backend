@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "nmb-edi-project-timeline",
+  "private_key_id": "2a3937b57c8c9f8c2c71a7990f19eac9c6c86a61",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCdR4EVmDbZaMVw\nQwSZ09MQyvuB+iQ9+xi+dHhNFAeUN1ZenVdXp9P14uW56gzlQudepa5pAfD3RF9y\ndVRZP1AmMXn0pu38oz80QODjF8UO4WD/nQx8UUwprWxHSFE2YEAjoyl+Wrozkg9X\nKne5SZST0k2QXI7AkDUeUhE5WZbw8DgLatzsdQAzsGOqns3jwe+o7gM4cK4ec8kI\nQx3fAibrMQTvcHgbou5aMGH+DLYqOKVJWpAyNB5ihG1x4d9CnAYDT4C1oYNo5SUM\nZeePol5YfV8u/qcfSfDyfZ8qsuyt4AE3GSauYfKY9MPsWzQ3XDX5oTaEOrdTYq+o\nn+N9zhkXAgMBAAECggEABZhX49FYtHWO2a+IqBTX5DfmqFR9vra5M8QnzJYp025J\nGybZNJdfRUSfZ4bi3EUOLOs39t/IhQNghnHc8uIgAPKvWtcDIF5AoVs/yWaqgIq6\n34GbVKxGkn4iCbBI6i9wGK/i97cwRADSwb3uu0Qi10P2R5EDXnrnaNpwQmxSDcAm\nhwTXYIEUk78KH93BLcP8GnWJBA9A8yall1qfwX/GQ8XTGS9k6DLZQhjaq09fBivx\nLspAYssyPGTnXxZDPEAu1Hq3Vaf6CJyDwwpcBkzDnX/RAN4EsCinRMr7mPAbj0pd\n2Gaa9dCquGG0j7zqCq2h/qiOfj0yrhkvavt+SJ0UAQKBgQDQf+2Nh7SZDO2v/Yc0\nTQ+z3eAfwj1PoBOdJXd15zVgYIaJb5g06YWW4cmfMzm/rTMc3M4nncDbnljecyNP\nqxgRyx5vsrBK65tFPNSSmPTABp7Rww8kYY0WIHkb3o+pRLtkB/z6Kwq500zIDi5s\nbsPt5Cx158Mvx+glPtrvXW3GWQKBgQDBHE/Ozn1VzkTxiZd8NsG28ca7ARa1kh82\nJQfdGXub/Moaus1tyBorgfUrvy4wW7EmHb1wr0nMeVjS0tTk5nMtLpwxWNpqXrPv\na6H/zw/q/yvEj+7mlJ4sKt5SLTye1WrzuCia1eQ2xky2MBVeisOQhb2ZNsqAyGtA\nq1UAufvM7wKBgEIJUp7x7VRQUPPds7Xv9lo8muDUL4EJrUyncjeonDJDQDlFXAre\nL46DQs2mdtLrs3Wfxbescknc1D7YbsWr5fq0v5YXHVkNWGdMhfNMeLBdKG49fo1C\nTGJGtLUL/6pX95YOJaTCfyot73KpczCqwGmXTDGnzx1SDofFaahIih05AoGAAisv\nOkNXZP9MBupkqSB0THmqoa8BckiR0SnZTMJcgQP1wRcX94Onx5VOC4+6FRDyjFsJ\nJZrSWVmDhdqYSXnNEVTUrDkzOr6VhrrOtvC8XQdAlpSHOk+w9w4EMSgQ5je/W71V\nt2dviK3xbppboxQr3hOibXYQECIwEinaaoesLEECgYA+MbcWHwk8sFa8L4hWoBBF\neBjAv9QWVRpDY8jFWiHdo+vbBNHfVH5e79107Gzn9bRPVjksUhE1sI/XdDbgrscz\n3NcpR15921aLAQC5r2LB5iapvK54TKXwVeJCEb8GFMoaP1Q23v4W6/WmDbpCYo9r\n0irb7X7GpNGhsirJyWouYA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "edi-project-plan-generator@nmb-edi-project-timeline.iam.gserviceaccount.com",
+  "client_id": "108067281680314006531",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/edi-project-plan-generator%40nmb-edi-project-timeline.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
