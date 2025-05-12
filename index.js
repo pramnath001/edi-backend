@@ -8,7 +8,6 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-const { google } = require('googleapis');
 
 // Load credentials from base64
 const base64 = process.env.GOOGLE_CREDENTIALS_BASE64;
