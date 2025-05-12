@@ -8,14 +8,24 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Google API Auth
-const credentials = JSON.parse(
-  Buffer.from(process.env.GOOGLE_CREDENTIALS_BASE64, 'base64').toString('utf8')
-);
+// Load service account credentials from base64
+let credentials;
+try {
+  const base64 = process.env.GOOGLE_CREDENTIALS_BASE64;
+  if (!base64) throw new Error('Missing GOOGLE_CREDENTIALS_BASE64 env variable');
+
+  credentials = JSON.parse(Buffer.from(base64, 'base64').toString('utf8'));
+} catch (err) {
+  console.error('❌ Failed to load Google credentials:', err.message);
+  process.exit(1); // Exit with failure
+}
 
 const auth = new google.auth.GoogleAuth({
   credentials,
-  scopes: ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
+  scopes: [
+    'https://www.googleapis.com/auth/spreadsheets',
+    'https://www.googleapis.com/auth/drive'
+  ]
 });
 
 
