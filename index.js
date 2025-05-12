@@ -11,8 +11,8 @@ app.use(bodyParser.json());
 // Load service account credentials from base64
 let credentials;
 try {
-  const base64 = process.env.GOOGLE_CREDENTIALS_BASE64;
-  if (!base64) throw new Error('Missing GOOGLE_CREDENTIALS_BASE64 env variable');
+  const base64 = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+  if (!base64) throw new Error('Missing GOOGLE_APPLICATION_CREDENTIALS env variable');
 
   credentials = JSON.parse(Buffer.from(base64, 'base64').toString('utf8'));
 } catch (err) {
