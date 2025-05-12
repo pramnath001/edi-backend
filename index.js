@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 // Google API Auth
 const auth = new google.auth.GoogleAuth({
-  keyFile: 'znmb-edi-project-timeline-b950d9425068.json',
+  keyFile: 'nmb-edi-project-timeline-b950d9425068.json',
   scopes: ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
 });
 
