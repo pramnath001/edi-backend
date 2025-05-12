@@ -9,10 +9,15 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Google API Auth
+const credentials = JSON.parse(
+  Buffer.from(process.env.GOOGLE_CREDENTIALS_BASE64, 'base64').toString('utf8')
+);
+
 const auth = new google.auth.GoogleAuth({
-  keyFile: 'nmb-edi-project-timeline-b950d9425068.json',
+  credentials,
   scopes: ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
 });
+
 
 const TEMPLATE_SPREADSHEET_ID = '1fRoDmMx8ZZzIyIvy3Ee72zmMnHMS8LRFi9zPODV4ej8';
 const DESTINATION_FOLDER_ID = null;
